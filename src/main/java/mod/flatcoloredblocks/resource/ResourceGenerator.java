@@ -48,6 +48,7 @@ public class ResourceGenerator {
                 final ResourceLocation sourceLoc = ClientSide.instance.getTextureResourceLocation(EnumFlatBlockType.TRANSPARENT);
                 final ResourceLocation textureName = ClientSide.instance.getTextureName(EnumFlatBlockType.TRANSPARENT, varient);
 
+
                 try {
                     InputStream resourceInput = getClass().getResourceAsStream(ClientSide.instance.getTextureRawLocation(EnumFlatBlockType.TRANSPARENT));
                     final NativeImage bi = NativeImage.read(resourceInput);

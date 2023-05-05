@@ -135,7 +135,7 @@ public class ClientSide {
     }
 
     public String getTextureRawLocation(final EnumFlatBlockType type) {
-        return "assets.flatcoloredblocks/textures/blocks/flatcoloredblock_" + getTextureFileFor(type) + ".png";
+        return "assets/flatcoloredblocks/textures/blocks/flatcoloredblock_" + getTextureFileFor(type) + ".png";
     }
 
     private String getTextureFileFor(
