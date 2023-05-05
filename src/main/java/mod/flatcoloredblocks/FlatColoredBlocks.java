@@ -9,11 +9,9 @@ import mod.flatcoloredblocks.config.ModConfig;
 import mod.flatcoloredblocks.craftingitem.ItemColoredBlockCrafter;
 import mod.flatcoloredblocks.network.NetworkRouter;
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -140,15 +138,7 @@ public class FlatColoredBlocks {
             FlatColoredBlocks.instance.items(ev.getRegistry());
         }
 
-        @SubscribeEvent
-        public static void onBlockColorRegistry(ColorHandlerEvent.Block event){
-            ClientSide.instance.clientBlocks(event.getBlockColors());
-        }
 
-        @SubscribeEvent
-        public static void onItemColorRegistry(ColorHandlerEvent.Item event){
-            ClientSide.instance.clientItems(event.getItemColors());
-        }
     }
 
 }

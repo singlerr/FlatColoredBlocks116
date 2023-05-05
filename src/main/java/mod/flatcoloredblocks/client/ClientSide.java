@@ -14,7 +14,6 @@ import net.minecraft.client.renderer.color.BlockColors;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.client.renderer.color.ItemColors;
-import net.minecraft.client.renderer.model.ModelBakery;
 import net.minecraft.item.ItemStack;
 import net.minecraft.resources.IReloadableResourceManager;
 import net.minecraft.resources.IResourceManager;
@@ -59,8 +58,8 @@ public class ClientSide {
                 }
 
             });
-            if(manager instanceof SimpleReloadableResourceManager){
-                ((SimpleReloadableResourceManager)manager).addResourcePack(CustomResourceInjector.generatedFiles);
+            if (manager instanceof SimpleReloadableResourceManager) {
+                ((SimpleReloadableResourceManager) manager).addResourcePack(CustomResourceInjector.generatedFiles);
                 resourceGenerator.populateResources();
             }
         }
@@ -74,8 +73,8 @@ public class ClientSide {
             FMLLoadCompleteEvent ev) {
         ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.CONFIGGUIFACTORY, new ModGuiRouter());
         //resourceGenerator.populateResources();
-      //  clientItems();
-      //  clientBlocks();
+        //  clientItems();
+        //  clientBlocks();
     }
 
     public void clientItems(ItemColors colors) {
@@ -133,6 +132,10 @@ public class ClientSide {
     public ResourceLocation getTextureResourceLocation(
             final EnumFlatBlockType type) {
         return new ResourceLocation(FlatColoredBlocks.MODID, "textures/blocks/flatcoloredblock_" + getTextureFileFor(type) + ".png");
+    }
+
+    public String getTextureRawLocation(final EnumFlatBlockType type) {
+        return "assets.flatcoloredblocks/textures/blocks/flatcoloredblock_" + getTextureFileFor(type) + ".png";
     }
 
     private String getTextureFileFor(

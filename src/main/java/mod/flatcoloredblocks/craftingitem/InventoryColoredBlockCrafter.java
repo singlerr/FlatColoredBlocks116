@@ -71,6 +71,7 @@ public class InventoryColoredBlockCrafter implements IInventory {
             Tag<Item> itemList) {
         dyeList.put(e, itemList.getAllElements());
     }
+
     private static void tagIntoList(
             HashMap<Object, Collection<Item>> dyeList,
             Enum<?> e,
@@ -78,6 +79,7 @@ public class InventoryColoredBlockCrafter implements IInventory {
         dyeList.put(e, itemList.getAllElements());
 
     }
+
     private static Tag<Item> getItems(
             final String name) {
 

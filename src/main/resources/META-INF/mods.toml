@@ -4,7 +4,7 @@ issueTrackerURL = "https://github.com/AlgorithmX2/FlatColoredBlocks/issues"
 displayURL = "https://minecraft.curseforge.com/projects/flat-colored-blocks"
 logoFile = "fcb.png"
 authors = "AlgorithmX2"
-license="GLGPLv3"
+license = "GLGPLv3"
 [[mods]]
 modId = "flatcoloredblocks"
 version = "${file.jarVersion}"

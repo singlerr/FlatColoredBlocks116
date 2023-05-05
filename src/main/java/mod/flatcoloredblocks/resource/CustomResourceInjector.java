@@ -20,8 +20,8 @@ public class CustomResourceInjector implements ISelectiveResourceReloadListener 
         generatedFiles.fakeFiles.put(folder + "/" + resourceName + ext, data);
     }
 
-    public static void addResource(String resourceName, String ext, byte[] data){
-        generatedFiles.fakeFiles.put(resourceName+ext,data);
+    public static void addResource(String resourceName, String ext, byte[] data) {
+        generatedFiles.fakeFiles.put(resourceName + ext, data);
     }
 
     @Override
@@ -31,8 +31,8 @@ public class CustomResourceInjector implements ISelectiveResourceReloadListener 
         if (resourcePredicate.test(VanillaResourceType.MODELS)) {
             if (resourceManager instanceof SimpleReloadableResourceManager) {
 
-               ((SimpleReloadableResourceManager) resourceManager).addResourcePack(generatedFiles);
-             ClientSide.instance.createResources();
+                ((SimpleReloadableResourceManager) resourceManager).addResourcePack(generatedFiles);
+                ClientSide.instance.createResources();
             }
         }
     }

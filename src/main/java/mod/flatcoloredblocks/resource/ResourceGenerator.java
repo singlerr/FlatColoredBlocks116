@@ -5,19 +5,17 @@ import mod.flatcoloredblocks.block.BlockHSVConfiguration;
 import mod.flatcoloredblocks.block.EnumFlatBlockType;
 import mod.flatcoloredblocks.client.ClientSide;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.model.ModelBakery;
 import net.minecraft.client.renderer.texture.NativeImage;
 import net.minecraft.resources.IReloadableResourceManager;
-import net.minecraft.resources.IResource;
 import net.minecraft.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
 import net.minecraftforge.common.MinecraftForge;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class ResourceGenerator {
 
@@ -35,13 +33,6 @@ public class ResourceGenerator {
         registerConfiguredResources(EnumFlatBlockType.NORMAL, FlatColoredBlocks.instance.normal);
         registerConfiguredResources(EnumFlatBlockType.GLOWING, FlatColoredBlocks.instance.glowing);
         registerConfiguredResources(EnumFlatBlockType.TRANSPARENT, FlatColoredBlocks.instance.transparent);
-        String mcMeta = "{\n" +
-                "   \"pack\": {\n" +
-                "      \"pack_format\": 5,\n" +
-                "      \"description\": \"Und ja\"\n" +
-                "   }\n" +
-                "}";
-        //CustomResourceInjector.addResource("pack",".mcmeta", mcMeta.getBytes());
     }
 
     private void registerConfiguredResources(
@@ -58,8 +49,8 @@ public class ResourceGenerator {
                 final ResourceLocation textureName = ClientSide.instance.getTextureName(EnumFlatBlockType.TRANSPARENT, varient);
 
                 try {
-                    final IResource iresource = Minecraft.getInstance().getResourceManager().getResource(sourceLoc);
-                    final NativeImage bi = NativeImage.read(iresource.getInputStream());
+                    InputStream resourceInput = getClass().getResourceAsStream(ClientSide.instance.getTextureRawLocation(EnumFlatBlockType.TRANSPARENT));
+                    final NativeImage bi = NativeImage.read(resourceInput);
 
                     final BufferedImage image = new BufferedImage(bi.getWidth(), bi.getHeight(), BufferedImage.TYPE_4BYTE_ABGR);
                     final int xx = bi.getWidth();
