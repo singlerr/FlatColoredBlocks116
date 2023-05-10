@@ -50,9 +50,17 @@ minecraft {
         }
     }
 }
-
+repositories{
+    maven {
+        name 'LDTTeam - Modding'
+        url 'https://ldtteam.jfrog.io/ldtteam/modding/'
+    }
+}
 dependencies {
     minecraft 'net.minecraftforge:forge:1.16.5-36.2.39'
+   // implementation ("com.communi-suggestu.scena:scena-core:1.0.92")
+   // implementation "com.communi-suggestu.saecularia-caudices:saecularia-caudices-core:1.0.14"
+
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..

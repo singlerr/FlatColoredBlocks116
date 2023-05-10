@@ -118,6 +118,12 @@ public class ClientSide {
             final int varient) {
         return new ResourceLocation(FlatColoredBlocks.MODID, getBaseTextureName(type) + "_" + varient);
     }
+    public String getTextureStringName(
+            final EnumFlatBlockType type,
+            final int varient) {
+        return getBaseTextureName(type) + "_" + varient;
+    }
+
 
     public String getBaseTextureName(
             final EnumFlatBlockType type) {

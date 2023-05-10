@@ -26,5 +26,10 @@
       <option name="name" value="maven" />
       <option name="url" value="https://maven.minecraftforge.net/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="LDTTeam - Modding" />
+      <option name="name" value="LDTTeam - Modding" />
+      <option name="url" value="https://ldtteam.jfrog.io/ldtteam/modding/" />
+    </remote-repository>
   </component>
 </project>

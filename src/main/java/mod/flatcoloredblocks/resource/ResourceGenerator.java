@@ -3,10 +3,12 @@ package mod.flatcoloredblocks.resource;
 import mod.flatcoloredblocks.FlatColoredBlocks;
 import mod.flatcoloredblocks.block.BlockHSVConfiguration;
 import mod.flatcoloredblocks.block.EnumFlatBlockType;
+import mod.flatcoloredblocks.block.EnumFlatColorAttributes;
 import mod.flatcoloredblocks.client.ClientSide;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.NativeImage;
 import net.minecraft.resources.IReloadableResourceManager;
+import net.minecraft.resources.IResource;
 import net.minecraft.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -47,11 +49,9 @@ public class ResourceGenerator {
             if (type == EnumFlatBlockType.TRANSPARENT) {
                 final ResourceLocation sourceLoc = ClientSide.instance.getTextureResourceLocation(EnumFlatBlockType.TRANSPARENT);
                 final ResourceLocation textureName = ClientSide.instance.getTextureName(EnumFlatBlockType.TRANSPARENT, varient);
-
-
                 try {
-                    InputStream resourceInput = getClass().getResourceAsStream(ClientSide.instance.getTextureRawLocation(EnumFlatBlockType.TRANSPARENT));
-                    final NativeImage bi = NativeImage.read(resourceInput);
+                    IResource iresource = Minecraft.getInstance().getResourceManager().getResource(sourceLoc);
+                    final NativeImage bi = NativeImage.read(iresource.getInputStream());
 
                     final BufferedImage image = new BufferedImage(bi.getWidth(), bi.getHeight(), BufferedImage.TYPE_4BYTE_ABGR);
                     final int xx = bi.getWidth();
